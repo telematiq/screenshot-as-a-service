@@ -34,5 +34,7 @@ app.use('development', function() {
 });
 
 require('./routes')(app, config.server.useCors);
-app.listen(config.server.port, config.server.host);
+var port = process.env.PORT || config.server.port;
+var host = process.env.HOST || config.server.host;
+app.listen(port, host);
 console.log('Express server listening on ' + config.server.host + ':' + config.server.port);
